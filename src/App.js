@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h5 className="center-align">Marriages in Salzburg over time</h5>
+        <h5 className="center-align">Machine Learning Concepts</h5>
         <main className="row">
           <div className="col m8 s12">
             <Plot

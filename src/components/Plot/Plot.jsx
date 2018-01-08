@@ -37,28 +37,6 @@ class Plot extends React.Component {
     this.setState({ value });
   }
 
-  renderHint() {
-    const { value } = this.state;
-
-    if (value) {
-      return (
-        <div>
-          <LineSeries
-            data={[{ x: value.x, y: value.y }, { x: XMAX, y: value.y }]}
-            stroke="black"
-          />
-          <Hint value={value} getAlignStyle={getAlignStyle}>
-            <div className="rv-hint__content">
-              {`(Year ${value.x}, Marriages: ${value.y})`}
-            </div>
-          </Hint>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }
-
   render() {
     const { value } = this.state;
 
@@ -94,7 +72,19 @@ class Plot extends React.Component {
           onNearestX={this._rememberValue}
           animation={"gentle"}
         />
-        {this.renderHint}
+        {value ? (
+          <LineSeries
+            data={[{ x: value.x, y: value.y }, { x: XMAX, y: value.y }]}
+            stroke="black"
+          />
+        ) : null}
+        {value ? (
+          <Hint value={value} getAlignStyle={getAlignStyle}>
+            <div className="rv-hint__content">
+              {`(Year ${value.x}, Marriages: ${value.y})`}
+            </div>
+          </Hint>
+        ) : null}
         {renderRegression()}
         <XAxis top={0} hideTicks tickValues={years} title="X" />
         <XAxis title="Year" tickFormat={v => v} />
