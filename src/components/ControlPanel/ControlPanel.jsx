@@ -37,6 +37,6 @@ const ControlPanel = props => (
 
 export default ControlPanel;
 
-ControlPanel.PropTypes = {
+ControlPanel.propTypes = {
   switchAge: PropTypes.func
 };
