@@ -17,7 +17,12 @@ const calculateRegression = formattedData => {
       y: el[1]
     };
   });
-  return {regressionData, gradient, yIntercept, prediction};
+  return {
+    regressionData,
+     gradient, 
+     yIntercept, 
+     prediction
+  };
 };
 
 export { calculateRegression as default };
